@@ -12,6 +12,10 @@ jobs:
       - run: |
           curl 'https://www.euribor-rates.eu/umbraco/api/euriborpageapi/highchartsdata?series[0]=2' | \
           jq --raw-output '.[0].Data[] | [.[0], .[1]] | @csv' > 3months.csv
+          curl 'https://www.euribor-rates.eu/umbraco/api/euriborpageapi/highchartsdata?series[0]=3' | \
+          jq --raw-output '.[0].Data[] | [.[0], .[1]] | @csv' > 6months.csv
+          curl 'https://www.euribor-rates.eu/umbraco/api/euriborpageapi/highchartsdata?series[0]=4' | \
+          jq --raw-output '.[0].Data[] | [.[0], .[1]] | @csv' > 12months.csv
       - uses: stefanzweifel/git-auto-commit-action@v4.1.2
         with:
           commit_message: Update EURIBOR
