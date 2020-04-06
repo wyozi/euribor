@@ -1,7 +1,5 @@
 name: Fetch EURIBOR
-on:
-  schedule:
-    - cron:  '* * * * *'
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
